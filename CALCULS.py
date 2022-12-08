@@ -15,8 +15,8 @@ df["Adeparture_Date"] = df["Adeparture_Date"].str[:4] + "/" + df["Adeparture_Dat
 #data from ELAL file
 df2 = pd.read_excel("Elal.xlsx") #or Elal if changes
 #plane
-#merged_df = pd.merge(df, df2, left_on=['Plane_id', 'Adeparture_Date'], right_on=['Plane_id','Departure_date'], how='left')
-merged_df = pd.merge(df, df2, left_on=['Plane_id','Departure_date'], right_on=['Plane_id', 'Adeparture_Date'], how='left')
+merged_df = pd.merge(df, df2, left_on=['Plane_id', 'Adeparture_Date'], right_on=['Plane_id','Departure_date'], how='left')
+#merged_df = pd.merge(df, df2, left_on=['Plane_id','Departure_date'], right_on=['Plane_id', 'Adeparture_Date'], how='left')
 print(merged_df)
 #merged_df.head()
 df.loc[:, 'Earrival'] = merged_df.loc[:, 'Arrival']
